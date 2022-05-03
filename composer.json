@@ -2,7 +2,7 @@
     "name": "madebyraygun/fractal-loader",
     "description": "Fractal template loader for Craft CMS",
     "type": "craft-plugin",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "keywords": [
         "craft",
         "cms",
