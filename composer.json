@@ -1,0 +1,40 @@
+{
+    "name": "madebyraygun/fractal-loader",
+    "description": "Fractal template loader for Craft CMS",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "fractal"
+    ],
+    "support": {
+        "docs": "https://github.com/madebyraygun/fractal-loader/blob/dev/README.md",
+        "issues": "https://github.com/madebyraygun/fractal-loader/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Raygun Design, LLC",
+            "homepage": "https://madebyraygun.com"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^4.0.0-RC2"
+    },
+    "autoload": {
+        "psr-4": {
+            "madebyraygun\\fractalloader\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Fractal Loader",
+        "handle": "fractal-loader",
+        "hasCpSettings": false,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/madebyraygun/fractal-loader/master/CHANGELOG.md",
+        "class": "madebyraygun\\fractalloader\\FractalLoader"
+    }
+}
