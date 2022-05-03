@@ -10,6 +10,7 @@ namespace madebyraygun\fractalloader\web\twig;
 
 use Craft;
 use craft\web\View;
+use craft\web\TemplateLoaderException;
 use Twig\Loader\LoaderInterface;
 use Twig\Source;
 
@@ -102,13 +103,13 @@ class FractalTemplateLoader implements LoaderInterface
     {   
         if (strpos($name, '@') === 0)
         {
-            $mappingPath = 'CRAFT_BASE_PATH' . '/components-map.json';
+            $mappingPath = CRAFT_BASE_PATH . '/components-map.json';
             if (is_readable($mappingPath))
             {
                 $mappings = json_decode(file_get_contents($mappingPath));
                 if ($mappings->$name) {
                     if (strpos($mappings->$name, '/') !== 0) {
-                        $template = realpath('CRAFT_BASE_PATH') . '/templates/' . $mappings->$name;
+                        $template = realpath(CRAFT_BASE_PATH) . '/templates/' . $mappings->$name;
                     } else {
                         $template = $mappings->$name;
                     }
@@ -116,7 +117,7 @@ class FractalTemplateLoader implements LoaderInterface
             }
             else
             {
-                throw new Exception(Craft::t('Could not read Fractal mappings file at %s.', array('path' => 'FRACTAL_COMPONENTS_MAP')));
+                throw new TemplateLoaderException($name, Craft::t('Could not read Fractal mappings file at %s.', ['path' => FRACTAL_COMPONENTS_MAP]));
             }
         } else {
 
