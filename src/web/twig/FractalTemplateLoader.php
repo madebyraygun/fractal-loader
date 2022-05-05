@@ -10,7 +10,7 @@ namespace madebyraygun\fractalloader\web\twig;
 
 use Craft;
 use craft\web\View;
-use craft\web\TemplateLoaderException;
+use craft\web\twig\TemplateLoaderException;
 use Twig\Loader\LoaderInterface;
 use Twig\Source;
 
