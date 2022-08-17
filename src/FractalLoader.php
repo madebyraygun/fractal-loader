@@ -11,6 +11,7 @@ namespace madebyraygun\fractalloader;
 use Craft;
 use craft\base\Plugin;
 use craft\web\View;
+use craft\web\Application;
 use madebyraygun\fractalloader\web\twig\FractalTemplateLoader;
 
 class FractalLoader extends Plugin
@@ -55,10 +56,11 @@ class FractalLoader extends Plugin
         parent::init();
         self::$plugin = $this;
         $view = null;
-
-        if ( !Craft::$app->request->isCpRequest ) {
-            $twig = Craft::$app->getView()->getTwig()->setLoader(new FractalTemplateLoader(new View));
-        }
+        Craft::$app->on(Application::EVENT_INIT, function() {
+            if ( !Craft::$app->request->isCpRequest ) {
+                $twig = Craft::$app->getView()->getTwig()->setLoader(new FractalTemplateLoader(new View));
+            }
+        });
         
     }
 }
